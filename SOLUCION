@@ -1,3 +1,5 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 /* TAREA 1                                               *
 *  CURSO: LENGUAJES DE PROGRAMACIÓN - LPW72 GRUPO 1      *
 *  DOCENTE: JUAN CAMILO CORREA CHICA                     *
@@ -31,7 +33,7 @@ bool ok_chscrb = False;
 void NumStringToInt(string numero)
 {
 	string num = numero; /* NO borre esta linea de codigo */
-	num = "2147483648"; //Puede reescribir la variable num de esta manera para que haga pruebas de su codigo 
+	num = "-214748"; //Puede reescribir la variable num de esta manera para que haga pruebas de su codigo 
 	
 	//De aqui en adelante se debe implementar la lógica en código de C++
 
@@ -78,7 +80,7 @@ if (result >= -2147483648 && result <= 2147483647)
 	    
 else
 	 {
-	    cout<<"El número excedio el limite del rango, permitido por el INT "<<endl;
+	    cout<<"El número excedio el limite del rango permitido por el INT "<<endl;
       }
 	
 }
@@ -101,13 +103,163 @@ void CheckScrabble (string &palabra1, string &palabra2)
 	
 	//De aqui en adelante se debe implementar la lógica en código de C++
 	
+	// DEFINICION DE VARIABLES
+	palabra1 = "Lenguajes";//"DesAmparaDor";//"equidad";
+	palabra2 = "Language124s";//"despaRRaMado";//"dadiuqe";
+	int tam_pal1 = 0;
+	int tam_pal2 = 0;
+	tam_pal1 = palabra1.size();
+	tam_pal2 = palabra2.size();
+	int j = 0;
+	int i = 0;
+	int repetidas = 0;
+	int repetidas2 = 0;
+	int resul_palabra1 = 0;
+	int resul_palabra2 = 0;
+	
+	int x = 0;
+	int y = 1;
+	int z = 1;
+	int suma = 0;
+	int suma2 = 0;
+	
+// BUSCA PALABRAS REPETIDAS
+while(x < tam_pal1 - 1)
+{
+    //BUSCA LAS PALBRAS REPETIDAS DE LA PALABRA 1
+    for(i ;i < tam_pal1 - 1 ; i++)
+    {
+        if (palabra1[x] == palabra1[y] || palabra1[x] == palabra1[y] + 32 || palabra1[x] == palabra1[y] - 32)
+            {
+                repetidas++;
+                suma = suma + palabra1 [x];
+                y++;
+            }
+        else
+            {
+                suma = suma + palabra1 [x];
+                y++;
+            }
+    }
+    //BUSCA LAS PALBRAS REPETIDAS DE LA PALABRA 2
+    for(j ;j < tam_pal2 - 1 ; j++)
+    {
+        if (palabra2[x] == palabra2[z] || palabra2[x] == palabra2[z] + 32 || palabra2[x] == palabra2[z] - 32)
+            {
+                repetidas2++;
+                suma2 = suma2 + palabra2 [x];
+                z++;
+            }
+
+        else
+            {
+                suma2 = suma2 + palabra2 [x];
+                z++;
+            }
+    }
+x++;
+i=x;
+j++;
+j=x;
+y=x+1;
+z=x+1;
+}
+
+if (tam_pal1 == tam_pal2 && repetidas == repetidas2)
+	{
+	    //CONVIERTE A MAYUSCULAS LAS MINUSCULAS DE LA PALABRA 1
+	    for(int i=0; i < tam_pal1; i++)
+	    {
+	        if (palabra1 [i] <= 122 && palabra1 [i] >= 97)
+	        {
+	    	    palabra1[i] = palabra1[i] - 32;
+	    	    resul_palabra1 = resul_palabra1 + palabra1[i];
+		    }
+		    else 
+		    {
+			    palabra1[i] = palabra1[i];
+			    resul_palabra1 = resul_palabra1 + palabra1[i];
+		    }
+		    cout<<palabra1[i]<<" "<<endl;
+	    }
+	    
+	    //CONVIERTE A MAYUSCULAS LAS MINUSCULAS DE LA PALABRA 2
+	    for(int j=0; j < tam_pal2; j++)
+	    {
+	        if (palabra2 [j] <= 122 && palabra2 [j] >= 97)
+	        {
+	    	    palabra2[j] = palabra2[j] - 32;
+	    	    resul_palabra2 = resul_palabra2 + palabra2[j];
+		    }
+		    else 
+		    {
+			    palabra2[j] = palabra2[j];
+			    resul_palabra2 = resul_palabra2 + palabra2[j];
+		    }
+		    cout<<palabra1[j]<<" "<<endl;
+	    }
+
+ //ORDENA LAS PALABRAS 1 Y 2 EN ORDEN ALFABETICO (CARACTERES Y NUMEROS SEGUN ASCII)	    
+int aux = 0;
+bool cambio = False;
+//ORDENA LAS LETRAS EN ORDEN ALFABETICO DE LA PALABRA1
+do
+	{
+		cambio = False;
+		for(int i=0; i<tam_pal1 - 1; i++)
+		{
+			if(palabra1[i] > palabra1[i+1])
+			{
+				aux = palabra1[i];
+				palabra1[i] = palabra1[i+1];
+				palabra1[i+1] = aux;
+				
+				cambio = True; 
+			}
+		}
+	}while(cambio);
+	
+int aux2 = 0;  
+bool cambio2 = False;
+//ORDENA LAS LETRAS EN ORDEN ALFABETICO DE LA PALABRA1
+do
+	{
+		cambio2 = False;
+		for(int j=0; j<tam_pal2 - 1; j++)
+		{
+			if(palabra2[j] > palabra2[j+1])
+			{
+				aux2 = palabra2[j];
+				palabra2[j] = palabra2[j+1];
+				palabra2[j+1] = aux2;
+				
+				cambio2 = True; 
+			}
+		}
+	}while(cambio2);
+
+if ((resul_palabra1 - resul_palabra2) == 0)	
+         ok_chscrb = True;
+	
+	else
+	     ok_chscrb = False;
+	     
+	}
 	
 	/*************************************************************/
 	/*Por favor NO borre las lineas de codigo siguientes */	
 	if(ok_chscrb)
+	{
 		cout<<"Tienen las mismas letras"<<endl;
+		cout<<"palabra1 ="<<palabra1<< endl;
+	    cout<<"palabra2 ="<<palabra2<< endl;
+	}
 	else
-		cout<<"No tienen las mismas letras"<<endl;	
+		{
+		cout<<"No tienen las mismas letras"<<endl;
+		cout<<"palabra1 ="<<palabra1<< endl;
+	    cout<<"palabra2 ="<<palabra2<< endl;
+		}
 }
 
 
@@ -166,34 +318,4 @@ int main()
 	
 	//3.
 	printStruct();
-}
-
-
-
-/////////////////////////////
-//////////////////////////
-////////////////////////////////
-
-int longitud(char *cadena) 
-{ 
-   int valor = 0; 
-   int i; 
-
-   for(i=0; cadena[ i ]!='\0'; i++) 
-      valor++; 
-
-   return valor; 
-} 
-
-int convertir_entero(char *cadena) 
-{ 
-   int potencias[5]={1,10,100,1000,10000}; 
-   int i; 
-   int valor = 0; 
-   int lon = longitud(cadena); 
-
-   for(i=lon-1; i>=0; i--) 
-      valor += (cadena[ i ]-'0') * potencias[ lon-i-1 ]; 
-
-   return valor; 
 }
