@@ -104,8 +104,8 @@ void CheckScrabble (string &palabra1, string &palabra2)
 	//De aqui en adelante se debe implementar la lógica en código de C++
 	
 	// DEFINICION DE VARIABLES
-	palabra1 = "Lenguajes";//"DesAmparaDor";//"equidad";
-	palabra2 = "Language124s";//"despaRRaMado";//"dadiuqe";
+	palabra1 = "DesAmparaDor";//"Lenguajes";////"equidad";
+	palabra2 = "despaRRaMado";//"Language124s";////"dadiuqe";
 	int tam_pal1 = 0;
 	int tam_pal2 = 0;
 	tam_pal1 = palabra1.size();
@@ -122,7 +122,8 @@ void CheckScrabble (string &palabra1, string &palabra2)
 	int z = 1;
 	int suma = 0;
 	int suma2 = 0;
-	
+	cout<<"palabra1 antes de comparar = "<<palabra1<< endl;
+	cout<<"palabra2 antes de comparar = "<<palabra2<< endl;
 // BUSCA PALABRAS REPETIDAS
 while(x < tam_pal1 - 1)
 {
@@ -180,7 +181,7 @@ if (tam_pal1 == tam_pal2 && repetidas == repetidas2)
 			    palabra1[i] = palabra1[i];
 			    resul_palabra1 = resul_palabra1 + palabra1[i];
 		    }
-		    cout<<palabra1[i]<<" "<<endl;
+		    //cout<<palabra1[i]<<" "<<endl;
 	    }
 	    
 	    //CONVIERTE A MAYUSCULAS LAS MINUSCULAS DE LA PALABRA 2
@@ -196,7 +197,7 @@ if (tam_pal1 == tam_pal2 && repetidas == repetidas2)
 			    palabra2[j] = palabra2[j];
 			    resul_palabra2 = resul_palabra2 + palabra2[j];
 		    }
-		    cout<<palabra1[j]<<" "<<endl;
+		   // cout<<palabra1[j]<<" "<<endl;
 	    }
 
  //ORDENA LAS PALABRAS 1 Y 2 EN ORDEN ALFABETICO (CARACTERES Y NUMEROS SEGUN ASCII)	    
@@ -251,14 +252,14 @@ if ((resul_palabra1 - resul_palabra2) == 0)
 	if(ok_chscrb)
 	{
 		cout<<"Tienen las mismas letras"<<endl;
-		cout<<"palabra1 ="<<palabra1<< endl;
-	    cout<<"palabra2 ="<<palabra2<< endl;
+		cout<<"palabra1 despues de comparar ="<<palabra1<< endl;
+	    cout<<"palabra2 despues de comparar ="<<palabra2<< endl;
 	}
 	else
 		{
 		cout<<"No tienen las mismas letras"<<endl;
-		cout<<"palabra1 ="<<palabra1<< endl;
-	    cout<<"palabra2 ="<<palabra2<< endl;
+		cout<<"palabra1 despues de comparar ="<<palabra1<< endl;
+	    cout<<"palabra2 despues de comparar ="<<palabra2<< endl;
 		}
 }
 
