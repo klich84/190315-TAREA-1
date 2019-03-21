@@ -104,8 +104,8 @@ void CheckScrabble (string &palabra1, string &palabra2)
 	//De aqui en adelante se debe implementar la lógica en código de C++
 	
 	// DEFINICION DE VARIABLES
-	palabra1 = "DesAmparaDor";//"Lenguajes";////"equidad";
-	palabra2 = "despaRRaMado";//"Language124s";////"dadiuqe";
+	palabra1 = "Mex1C4l1";
+	palabra2 = "411clEmX";
 	int tam_pal1 = 0;
 	int tam_pal2 = 0;
 	tam_pal1 = palabra1.size();
@@ -284,7 +284,7 @@ struct Clase
 		long long int mem5 = 5444333222;
 		char mem6 = 'X';
 		int mem7 = 434776;
-		double mem8 = 2.35656778457911;		
+		double mem8 = 2.35656778457911;	
 	};
 
 void printStruct(void)
@@ -293,14 +293,16 @@ void printStruct(void)
 	
 	//De aqui en adelante se debe implementar la lógica en código de C++
 	Clase *ptr_clase = &local_struct;
-	//(char *) ptr_clase
+	
 	cout<<"valor mem1 = "<<*(char *) ptr_clase<< endl;
-	//ptr_clase = *(ptr_clase+1); 
 	cout<<"valor mem2 = "<< *((double *) ptr_clase+1) << endl;
     cout<<"valor mem3 = "<< *((unsigned short *) ptr_clase+8) << endl;
     cout<<"valor mem4 = "<< *((float *) ptr_clase+5) << endl;
-	
-	
+    cout<<"valor mem5 = "<< *((long long *) ptr_clase+3) << endl;
+    cout<<"valor mem6 = "<< *((char *) ptr_clase+32) << endl;
+    cout<<"valor mem7 = "<< *((int *) ptr_clase+9) << endl;
+    cout<<"valor mem8 = "<< *((double *) ptr_clase+5) << endl;
+    
 }
 
 
